@@ -1,0 +1,35 @@
+# Abhängigkeiten
+/node_modules
+/.pnp
+.pnp.js
+.yarn/install-state.gz
+
+# Testabdeckung
+/coverage
+
+# Next.js Build-Ausgaben
+/.next/
+/out/
+
+# Produktionsausgaben
+/build
+
+# Verschiedene Dateien
+.DS_Store
+*.pem
+
+# Debug-Dateien
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Lokale Umgebungsvariablen
+.env*.local
+.env
+
+# Vercel
+.vercel
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts

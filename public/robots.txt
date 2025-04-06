@@ -1,0 +1,10 @@
+# robots.txt für softacc.ch
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://softacc.ch/sitemap.xml
+
+# Crawl-delay für Bots
+User-agent: *
+Crawl-delay: 10 
