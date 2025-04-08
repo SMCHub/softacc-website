@@ -31,6 +31,22 @@ const services: ServiceProps[] = [
     ]
   },
   {
+    id: 'ecommerce-dropshipping',
+    title: 'Mobile E-Commerce Apps',
+    description: 'Wir entwickeln hochwertige, native iOS und Android E-Commerce-Apps, die sich nahtlos mit Ihrer bestehenden Shopify oder WooCommerce Webseite verbinden. Erweitern Sie Ihren Vertriebskanal und steigern Sie Ihren Umsatz durch eine maßgeschneiderte mobile Shopping-Erfahrung.',
+    features: [
+      'Native iOS und Android E-Commerce-Apps',
+      'Nahtlose Integration mit Shopify, WooCommerce und anderen Systemen',
+      'Schnelle API-Anbindung an bestehende Online-Shops',
+      'Individuelles Branding und maßgeschneidertes Design',
+      'Push-Benachrichtigungen für Sonderangebote und Neuigkeiten',
+      'Kundenbindungsprogramme und In-App-Marketing'
+    ],
+    technologies: [
+      'React Native', 'Flutter', 'Shopify API', 'WooCommerce API', 'Firebase', 'Apple Pay', 'Google Pay', 'iOS', 'Android'
+    ]
+  },
+  {
     id: 'app-entwicklung',
     title: 'App- & Softwareentwicklung',
     description: 'Von nativen Mobil-Apps bis hin zu komplexen Softwarelösungen – wir entwickeln maßgeschneiderte Anwendungen, die Ihre Geschäftsprozesse optimal unterstützen und Ihren Kunden ein herausragendes Nutzererlebnis bieten.',
@@ -98,8 +114,67 @@ export default function LeistungenPage() {
     }
   };
 
+  const faqItems = [
+    {
+      question: "Wie läuft ein typisches Projekt bei Softacc ab?",
+      answer: "Wir beginnen mit einer gründlichen Anforderungsanalyse, gefolgt von einer detaillierten Planung und einem Designkonzept. Nach Ihrer Freigabe starten wir mit der Entwicklung, halten Sie während des gesamten Prozesses auf dem Laufenden und führen regelmäßige Feedback-Runden durch. Nach dem Testing und der Qualitätssicherung erfolgt die Auslieferung mit anschließendem Support."
+    },
+    {
+      question: "Welche Projektgrößen können Sie abdecken?",
+      answer: "Unser Team ist flexibel aufgestellt und kann sowohl kleinere Projekte als auch umfangreiche Unternehmenslösungen realisieren. Von einer einfachen Landingpage bis hin zu komplexen Anwendungen mit KI-Integration – wir passen unsere Ressourcen an die Anforderungen Ihres Projekts an."
+    },
+    {
+      question: "Wie gewährleisten Sie die Qualität Ihrer Arbeit?",
+      answer: "Qualität steht bei uns an erster Stelle. Wir arbeiten nach bewährten Entwicklungsmethoden, setzen auf automatisierte Tests und Code-Reviews und führen umfassende Qualitätssicherungsmaßnahmen durch. Regelmäßige Schulungen sorgen dafür, dass unser Team stets mit den neuesten Technologien und Best Practices vertraut ist."
+    }
+  ];
+
   return (
     <>
+      {/* FAQ Schema for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqItems.map(item => ({
+              "@type": "Question",
+              "name": item.question,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": item.answer
+              }
+            }))
+          })
+        }}
+      />
+
+      {/* BreadcrumbList Schema for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://softacc.ch"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Leistungen",
+                "item": "https://softacc.ch/leistungen"
+              }
+            ]
+          })
+        }}
+      />
+
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-primary/80 to-primary py-16 md:py-24">
         <div className="container mx-auto px-4">
@@ -234,26 +309,12 @@ export default function LeistungenPage() {
               animate="visible"
               className="space-y-6"
             >
-              <motion.div variants={fadeIn} className="bg-card p-6 rounded-lg shadow-sm border border-border">
-                <h3 className="text-xl font-bold mb-3">Wie läuft ein typisches Projekt bei Softacc ab?</h3>
-                <p className="text-muted-foreground">
-                  Wir beginnen mit einer gründlichen Anforderungsanalyse, gefolgt von einer detaillierten Planung und einem Designkonzept. Nach Ihrer Freigabe starten wir mit der Entwicklung, halten Sie während des gesamten Prozesses auf dem Laufenden und führen regelmäßige Feedback-Runden durch. Nach dem Testing und der Qualitätssicherung erfolgt die Auslieferung mit anschließendem Support.
-                </p>
-              </motion.div>
-
-              <motion.div variants={fadeIn} className="bg-card p-6 rounded-lg shadow-sm border border-border">
-                <h3 className="text-xl font-bold mb-3">Welche Projektgrößen können Sie abdecken?</h3>
-                <p className="text-muted-foreground">
-                  Unser Team ist flexibel aufgestellt und kann sowohl kleinere Projekte als auch umfangreiche Unternehmenslösungen realisieren. Von einer einfachen Landingpage bis hin zu komplexen Anwendungen mit KI-Integration – wir passen unsere Ressourcen an die Anforderungen Ihres Projekts an.
-                </p>
-              </motion.div>
-
-              <motion.div variants={fadeIn} className="bg-card p-6 rounded-lg shadow-sm border border-border">
-                <h3 className="text-xl font-bold mb-3">Wie gewährleisten Sie die Qualität Ihrer Arbeit?</h3>
-                <p className="text-muted-foreground">
-                  Qualität steht bei uns an erster Stelle. Wir arbeiten nach bewährten Entwicklungsmethoden, setzen auf automatisierte Tests und Code-Reviews und führen umfassende Qualitätssicherungsmaßnahmen durch. Regelmäßige Schulungen sorgen dafür, dass unser Team stets mit den neuesten Technologien und Best Practices vertraut ist.
-                </p>
-              </motion.div>
+              {faqItems.map((faq, index) => (
+                <motion.div key={index} variants={fadeIn} className="bg-card p-6 rounded-lg shadow-sm border border-border">
+                  <h3 className="text-xl font-bold mb-3">{faq.question}</h3>
+                  <p className="text-muted-foreground">{faq.answer}</p>
+                </motion.div>
+              ))}
             </motion.div>
           </div>
         </div>

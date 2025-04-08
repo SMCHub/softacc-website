@@ -71,7 +71,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: 'google-site-verification-code', // Ersetzen Sie dies mit Ihrem tatsächlichen Verifizierungscode
+    google: 'HuNxV-QZfgOOLBUXUU9e9vTdIwjmSZU0lGEiNbSUVzQ', // Dieser Code ist ein Beispiel und sollte durch den echten Code ersetzt werden
   },
   category: 'technology',
   metadataBase: new URL('https://softacc.ch'),
@@ -89,6 +89,13 @@ export default function RootLayout({
         <link rel="canonical" href="https://softacc.ch" />
         <meta name="geo.region" content="CH" />
         <meta name="geo.placename" content="Niederurnen" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+        <meta name="theme-color" content="#4338ca" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+        <link rel="manifest" href="/manifest.json" />
       </head>
       <body className={`${inter.variable} font-sans`}>
         <ThemeProvider
