@@ -234,17 +234,17 @@ export default function Home() {
     // Slider für Hero-Bereich
     const heroTimer = setTimeout(() => {
       setCurrentSlide((prevSlide) => (prevSlide + 1) % heroSlides.length);
-    }, 5000); // Alle 5 Sekunden wechseln
+    }, 10000); // Alle 10 Sekunden wechseln
     
     // Slider für App-Bereich
     const appTimer = setTimeout(() => {
       setCurrentAppSlide((prevSlide) => (prevSlide + 1) % appSlides.length);
-    }, 5000); // Alle 5 Sekunden wechseln
+    }, 10000); // Alle 10 Sekunden wechseln
     
     // Slider für Projekte-Bereich
     const projectTimer = setTimeout(() => {
       setCurrentProjectSlide((prevSlide) => (prevSlide + 1) % projects.length);
-    }, 5000); // Alle 5 Sekunden wechseln
+    }, 10000); // Alle 10 Sekunden wechseln
     
     return () => {
       clearTimeout(heroTimer);
