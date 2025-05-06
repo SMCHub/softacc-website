@@ -3,7 +3,15 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+import { ServiceCard } from '../components/ServiceCard';
+import { 
+  WebDevIcon,
+  MobileAppIcon, 
+  SoftwareDevIcon, 
+  AIConsultingIcon, 
+  CloudSolutionsIcon,
+  ECommerceIcon
+} from '../components/ServiceIcons';
 
 interface ServiceProps {
   id: string;
@@ -11,6 +19,8 @@ interface ServiceProps {
   description: string;
   features: string[];
   technologies: string[];
+  icon: React.ReactNode;
+  color: 'blue' | 'purple' | 'green' | 'amber' | 'rose';
 }
 
 const services: ServiceProps[] = [
@@ -28,7 +38,9 @@ const services: ServiceProps[] = [
     ],
     technologies: [
       'Next.js', 'React', 'TypeScript', 'Node.js', 'GraphQL', 'REST APIs', 'Tailwind CSS', 'Headless CMS'
-    ]
+    ],
+    icon: <WebDevIcon />,
+    color: 'blue'
   },
   {
     id: 'ecommerce-dropshipping',
@@ -44,7 +56,9 @@ const services: ServiceProps[] = [
     ],
     technologies: [
       'React Native', 'Flutter', 'Shopify API', 'WooCommerce API', 'Firebase', 'Apple Pay', 'Google Pay', 'iOS', 'Android'
-    ]
+    ],
+    icon: <ECommerceIcon />,
+    color: 'green'
   },
   {
     id: 'app-entwicklung',
@@ -60,7 +74,9 @@ const services: ServiceProps[] = [
     ],
     technologies: [
       'React Native', 'Flutter', 'Swift', 'Kotlin', 'Electron', 'Firebase', 'MongoDB', 'PostgreSQL'
-    ]
+    ],
+    icon: <MobileAppIcon />,
+    color: 'purple'
   },
   {
     id: 'ai-beratung',
@@ -76,7 +92,9 @@ const services: ServiceProps[] = [
     ],
     technologies: [
       'TensorFlow', 'PyTorch', 'OpenAI', 'Azure AI', 'Google Cloud AI', 'Power BI', 'Tableau', 'Python'
-    ]
+    ],
+    icon: <AIConsultingIcon />,
+    color: 'amber'
   },
   {
     id: 'cloud-devops',
@@ -92,7 +110,9 @@ const services: ServiceProps[] = [
     ],
     technologies: [
       'Azure', 'Google Cloud Platform', 'AWS', 'Docker', 'Kubernetes', 'GitHub Actions', 'Jenkins', 'Terraform'
-    ]
+    ],
+    icon: <CloudSolutionsIcon />,
+    color: 'rose'
   }
 ];
 
@@ -176,40 +196,88 @@ export default function LeistungenPage() {
       />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-primary/80 to-primary py-16 md:py-24">
-        <div className="container mx-auto px-4">
+      <section className="relative overflow-hidden py-20 md:py-32 bg-gradient-to-br from-gray-100/50 to-background dark:from-gray-900/50 dark:to-background">
+        <motion.div 
+          className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23555555' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E\")",
+            backgroundSize: "24px 24px"
+          }}
+        />
+
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
             className="text-center max-w-3xl mx-auto"
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-primary-foreground">Unsere Leistungen</h1>
-            <p className="text-xl md:text-2xl text-primary-foreground/90">
-              Entdecken Sie unser umfassendes Angebot an IT- und AI-Lösungen für Ihr Unternehmen.
+            <motion.div 
+              className="inline-flex items-center mb-6 px-4 py-2 rounded-full bg-gray-100/50 dark:bg-gray-800/50 text-gray-800 dark:text-gray-200 border border-gray-200/60 dark:border-gray-700/30"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.1, duration: 0.5 }}
+            >
+              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+              Maßgeschneiderte IT-Lösungen
+            </motion.div>
+            
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-gray-800 to-gray-600 dark:from-gray-200 dark:to-gray-400">
+              Unsere Leistungen
+            </h1>
+            
+            <p className="text-xl md:text-2xl text-foreground/80">
+              Wir bieten maßgeschneiderte Lösungen für die digitalen Herausforderungen Ihres Unternehmens.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Services Navigation */}
-      <section className="py-8 bg-muted/50 sticky top-16 z-40">
+      {/* Services Grid Section */}
+      <section className="py-16 bg-muted/30">
         <div className="container mx-auto px-4">
-          <nav className="flex flex-wrap justify-center gap-2 md:gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <ServiceCard
+                key={service.id}
+                title={service.title}
+                description={service.description}
+                href={`/leistungen#${service.id}`}
+                icon={service.icon}
+                color={service.color}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Services Detail Navigation */}
+      <section className="py-8 bg-muted/50 sticky top-16 z-40 backdrop-blur-md border-y border-border/30">
+        <div className="container mx-auto px-4">
+          <motion.nav 
+            className="flex flex-wrap justify-center gap-2 md:gap-4"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
             {services.map((service) => (
-              <button
+              <motion.button
                 key={service.id}
                 onClick={() => setActiveTab(service.id)}
-                className={`px-4 py-2 rounded-md text-sm md:text-base font-medium transition-colors ${
+                className={`px-4 py-2 rounded-md text-sm md:text-base font-medium transition-all duration-300 ${
                   activeTab === service.id
-                    ? 'bg-primary text-primary-foreground font-bold shadow-md'
-                    : 'bg-card text-card-foreground hover:bg-muted/80'
+                    ? `bg-gradient-to-r from-gray-800 to-gray-700 dark:from-gray-200 dark:to-gray-300 text-white dark:text-gray-900 shadow-md shadow-black/10`
+                    : 'bg-card/80 text-card-foreground hover:bg-muted'
                 }`}
+                whileHover={{ y: -2 }}
+                whileTap={{ y: 0 }}
               >
                 {service.title}
-              </button>
+              </motion.button>
             ))}
-          </nav>
+          </motion.nav>
         </div>
       </section>
 
@@ -226,20 +294,22 @@ export default function LeistungenPage() {
                 initial="hidden"
                 animate="visible"
                 variants={fadeIn}
-                className="max-w-4xl mx-auto"
+                className="max-w-4xl mx-auto bg-card/50 backdrop-blur-sm p-8 rounded-xl border border-border/50 shadow-lg"
               >
                 <div className="flex items-center mb-8">
-                  <div className="flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 text-primary mr-6">
-                    <span className="text-lg font-bold">{service.title.charAt(0)}</span>
+                  <div className="flex items-center justify-center w-16 h-16 rounded-xl bg-gray-100 dark:bg-gray-800/50 text-gray-700 dark:text-gray-300 mr-6">
+                    {service.icon}
                   </div>
-                  <h2 className="text-3xl md:text-4xl font-bold">{service.title}</h2>
+                  <h2 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-800 to-gray-600 dark:from-gray-200 dark:to-gray-400">
+                    {service.title}
+                  </h2>
                 </div>
 
-                <p className="text-xl text-muted-foreground mb-10">{service.description}</p>
+                <p className="text-xl text-foreground/80 mb-10 leading-relaxed">{service.description}</p>
 
                 <div className="grid md:grid-cols-2 gap-8 mb-12">
-                  <motion.div variants={staggerContainer} initial="hidden" animate="visible">
-                    <h3 className="text-2xl font-bold mb-4">Was wir bieten</h3>
+                  <motion.div variants={staggerContainer} initial="hidden" animate="visible" className="bg-background/80 backdrop-blur-sm p-6 rounded-xl border border-border/30 shadow-sm">
+                    <h3 className="text-2xl font-bold mb-4 text-gray-800 dark:text-gray-200">Was wir bieten</h3>
                     <ul className="space-y-3">
                       {service.features.map((feature, index) => (
                         <motion.li
@@ -248,7 +318,7 @@ export default function LeistungenPage() {
                           className="flex items-start"
                         >
                           <svg
-                            className="w-5 h-5 text-primary mt-1 mr-3 flex-shrink-0"
+                            className="w-5 h-5 text-gray-600 dark:text-gray-400 mt-1 mr-3 flex-shrink-0"
                             fill="currentColor"
                             viewBox="0 0 20 20"
                             xmlns="http://www.w3.org/2000/svg"
@@ -265,14 +335,15 @@ export default function LeistungenPage() {
                     </ul>
                   </motion.div>
 
-                  <motion.div variants={staggerContainer} initial="hidden" animate="visible">
-                    <h3 className="text-2xl font-bold mb-4">Technologien</h3>
+                  <motion.div variants={staggerContainer} initial="hidden" animate="visible" className="bg-background/80 backdrop-blur-sm p-6 rounded-xl border border-border/30 shadow-sm">
+                    <h3 className="text-2xl font-bold mb-4 text-gray-800 dark:text-gray-200">Technologien</h3>
                     <div className="flex flex-wrap gap-2">
                       {service.technologies.map((tech, index) => (
                         <motion.span
                           key={index}
                           variants={fadeIn}
-                          className="inline-block px-3 py-2 bg-muted rounded-md text-sm text-muted-foreground"
+                          className="inline-block px-3 py-2 bg-gray-100/50 dark:bg-gray-800/20 text-gray-700 dark:text-gray-300 rounded-md text-sm border border-gray-200/50 dark:border-gray-700/30"
+                          whileHover={{ y: -2, scale: 1.05, transition: { duration: 0.2 } }}
                         >
                           {tech}
                         </motion.span>
@@ -282,7 +353,13 @@ export default function LeistungenPage() {
                 </div>
 
                 <div className="text-center">
-                  <Link href="/kontakt" className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-6 py-2">
+                  <Link 
+                    href="/kontakt" 
+                    className="inline-flex items-center px-6 py-3 rounded-lg bg-gradient-to-r from-gray-800 to-gray-700 dark:from-gray-200 dark:to-gray-300 text-white dark:text-gray-900 font-medium shadow-lg shadow-black/10 hover:shadow-xl hover:shadow-black/20 transition-all duration-300 hover:-translate-y-1"
+                  >
+                    <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                    </svg>
                     Unverbindliches Beratungsgespräch vereinbaren
                   </Link>
                 </div>
@@ -293,26 +370,46 @@ export default function LeistungenPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 bg-muted/50">
+      <section className="py-16 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Häufig gestellte Fragen</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <motion.h2 
+              className="text-3xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-gray-800 to-gray-600 dark:from-gray-200 dark:to-gray-400"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              Häufig gestellte Fragen
+            </motion.h2>
+            <motion.p 
+              className="text-xl text-foreground/80 max-w-3xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
               Antworten auf die wichtigsten Fragen zu unseren Leistungen und Vorgehensweisen.
-            </p>
+            </motion.p>
           </div>
 
           <div className="max-w-3xl mx-auto">
             <motion.div
               variants={staggerContainer}
               initial="hidden"
-              animate="visible"
+              whileInView="visible"
+              viewport={{ once: true }}
               className="space-y-6"
             >
               {faqItems.map((faq, index) => (
-                <motion.div key={index} variants={fadeIn} className="bg-card p-6 rounded-lg shadow-sm border border-border">
-                  <h3 className="text-xl font-bold mb-3">{faq.question}</h3>
-                  <p className="text-muted-foreground">{faq.answer}</p>
+                <motion.div 
+                  key={index} 
+                  variants={fadeIn} 
+                  className="bg-card/80 backdrop-blur-sm p-6 rounded-xl shadow-md border border-border/50 hover:shadow-lg hover:border-gray-400/20 dark:hover:border-gray-600/20 transition-all duration-300"
+                  whileHover={{ y: -3, transition: { duration: 0.2 } }}
+                >
+                  <h3 className="text-xl font-bold mb-3 text-gray-800 dark:text-gray-200">{faq.question}</h3>
+                  <p className="text-foreground/80 leading-relaxed">{faq.answer}</p>
                 </motion.div>
               ))}
             </motion.div>
@@ -321,15 +418,77 @@ export default function LeistungenPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-primary">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-primary-foreground">Lassen Sie uns Ihr Projekt besprechen</h2>
-          <p className="text-xl mb-8 max-w-3xl mx-auto text-primary-foreground/90">
+      <section className="py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-900/90 to-gray-800 via-gray-900/80"></div>
+        
+        {/* Animated background elements */}
+        <motion.div 
+          className="absolute top-0 right-0 w-96 h-96 rounded-full bg-white/5"
+          style={{ filter: 'blur(80px)' }}
+          animate={{ 
+            x: [50, -50, 50], 
+            y: [-50, 50, -50],
+            scale: [1, 1.2, 1],
+          }}
+          transition={{ 
+            duration: 15, 
+            repeat: Infinity,
+            repeatType: "reverse" 
+          }}
+        />
+        
+        <motion.div 
+          className="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-white/5"
+          style={{ filter: 'blur(60px)' }}
+          animate={{ 
+            x: [-30, 30, -30], 
+            y: [30, -30, 30],
+            scale: [1.2, 1, 1.2],
+          }}
+          transition={{ 
+            duration: 12, 
+            repeat: Infinity,
+            repeatType: "reverse" 
+          }}
+        />
+        
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <motion.h2 
+            className="text-3xl md:text-5xl font-bold mb-6 text-white"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            Bereit für Ihr nächstes Projekt?
+          </motion.h2>
+          
+          <motion.p 
+            className="text-xl mb-8 max-w-3xl mx-auto text-white/90"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
             Wir freuen uns darauf, mehr über Ihre Anforderungen zu erfahren und gemeinsam die perfekte Lösung zu entwickeln.
-          </p>
-          <Link href="/kontakt" className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-background text-foreground hover:bg-accent h-10 px-6 py-2">
-            Kontakt aufnehmen
-          </Link>
+          </motion.p>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <Link 
+              href="/kontakt" 
+              className="inline-flex items-center px-8 py-4 rounded-xl bg-white text-gray-900 font-medium shadow-lg shadow-white/10 hover:shadow-xl hover:shadow-white/20 transition-all duration-300 hover:-translate-y-1"
+            >
+              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              Kontakt aufnehmen
+            </Link>
+          </motion.div>
         </div>
       </section>
     </>
