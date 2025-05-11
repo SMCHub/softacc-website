@@ -80,22 +80,22 @@ export default function Header() {
                 <motion.span
                   className={`relative text-lg font-medium transition-colors hover:text-primary ${
                     isActive ? 'text-primary' : 'text-foreground'
-                  }`}
+                }`}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                >
-                  {item.name}
-                  {isActive && (
-                    <motion.span
+              >
+                {item.name}
+                {isActive && (
+                  <motion.span
                       className="absolute -bottom-1.5 left-0 w-full h-0.5 bg-primary rounded-full"
-                      layoutId="navbar-indicator"
+                    layoutId="navbar-indicator"
                       transition={{ 
                         type: 'spring', 
                         stiffness: 350, 
                         damping: 30 
                       }}
-                    />
-                  )}
+                  />
+                )}
                 </motion.span>
               </Link>
             );
@@ -148,33 +148,33 @@ export default function Header() {
 
       {/* Mobile Menu */}
       <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
+      {mobileMenuOpen && (
+        <motion.div
             key="mobile-menu"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
             className="md:hidden bg-background border-b border-border overflow-hidden"
-          >
+        >
             <motion.nav className="flex flex-col p-4">
               {navItems.map((item, index) => {
-                const isActive = pathname === item.path;
-                return (
+              const isActive = pathname === item.path;
+              return (
                   <motion.div
                     key={item.path}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
                   >
-                    <Link
-                      href={item.path}
+                <Link
+                  href={item.path}
                       className={`flex items-center py-3 px-4 text-lg font-medium rounded-md ${
                         isActive 
                           ? 'text-primary bg-primary/10' 
                           : 'text-foreground hover:text-primary hover:bg-muted'
-                      }`}
-                      onClick={() => setMobileMenuOpen(false)}
+                  }`}
+                  onClick={() => setMobileMenuOpen(false)}
                       aria-current={isActive ? 'page' : undefined}
                       tabIndex={0}
                       onKeyDown={(e) => {
@@ -184,8 +184,8 @@ export default function Header() {
                           window.location.href = item.path;
                         }
                       }}
-                    >
-                      {item.name}
+                >
+                  {item.name}
                       {isActive && (
                         <motion.span
                           className="ml-auto"
@@ -198,10 +198,10 @@ export default function Header() {
                           </svg>
                         </motion.span>
                       )}
-                    </Link>
+                </Link>
                   </motion.div>
-                );
-              })}
+              );
+            })}
               
               {/* Zusätzliche Informationen im mobilen Menü */}
               <motion.div
@@ -222,8 +222,8 @@ export default function Header() {
                 </div>
               </motion.div>
             </motion.nav>
-          </motion.div>
-        )}
+        </motion.div>
+      )}
       </AnimatePresence>
     </motion.header>
   );

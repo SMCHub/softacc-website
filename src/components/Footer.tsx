@@ -73,7 +73,7 @@ export default function Footer() {
                   )}
                 </motion.a>
               ))}
-            </div>
+          </div>
           </motion.div>
 
           <motion.div variants={itemVariants}>
@@ -159,10 +159,10 @@ export default function Footer() {
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link href="/datenschutz" className="hover:text-primary transition-colors">
               Datenschutz
-            </Link>
+              </Link>
             <Link href="/impressum" className="hover:text-primary transition-colors">
               Impressum
-            </Link>
+              </Link>
           </div>
         </motion.div>
       </div>

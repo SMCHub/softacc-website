@@ -73,7 +73,7 @@ export function ThemeToggle() {
         className="absolute"
         variants={sunVariants}
         animate={!isDark ? "active" : "inactive"}
-      >
+    >
         <circle 
           cx="12" 
           cy="12" 

@@ -2,9 +2,24 @@
 User-agent: *
 Allow: /
 
-# Sitemap
-Sitemap: https://softacc.ch/sitemap.xml
+# Spezifische Regeln für Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 5
 
-# Crawl-delay für Bots
-User-agent: *
-Crawl-delay: 10 
+# Spezifische Regeln für Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 5
+
+# Spezifische Regeln für Yandex
+User-agent: Yandex
+Allow: /
+Crawl-delay: 5
+
+# Bilder indexieren lassen
+User-agent: Googlebot-Image
+Allow: /images/
+
+# Sitemap
+Sitemap: https://softacc.ch/sitemap.xml 

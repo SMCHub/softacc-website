@@ -7,54 +7,124 @@
                             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
     <loc>https://softacc.ch/</loc>
-    <lastmod>2024-04-08T21:00:00+02:00</lastmod>
+    <lastmod>2024-05-28T12:00:00+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="de-CH" href="https://softacc.ch/"/>
     <image:image>
       <image:loc>https://softacc.ch/images/logo.png</image:loc>
       <image:title>Softacc Logo</image:title>
+      <image:caption>Softacc - Professionelle IT- und AI-Beratung in der Schweiz</image:caption>
+      <image:geo_location>Niederurnen, Schweiz</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://softacc.ch/images/softacc-og-image.jpg</image:loc>
+      <image:title>Softacc Cover Image</image:title>
+      <image:caption>IT- und AI-Beratung für innovative Schweizer Unternehmen</image:caption>
+      <image:geo_location>Niederurnen, Schweiz</image:geo_location>
     </image:image>
   </url>
   <url>
     <loc>https://softacc.ch/leistungen</loc>
-    <lastmod>2024-04-08T21:00:00+02:00</lastmod>
+    <lastmod>2024-05-28T12:00:00+02:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="de-CH" href="https://softacc.ch/leistungen"/>
     <image:image>
       <image:loc>https://softacc.ch/images/app-mockup-1.jpg</image:loc>
       <image:title>E-Commerce App Mockup</image:title>
+      <image:caption>Smartphone-App für E-Commerce Anwendungen entwickelt von Softacc</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://softacc.ch/ueber-uns</loc>
-    <lastmod>2024-04-08T21:00:00+02:00</lastmod>
+    <lastmod>2024-05-28T12:00:00+02:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="de-CH" href="https://softacc.ch/ueber-uns"/>
+    <image:image>
+      <image:loc>https://softacc.ch/images/team.jpg</image:loc>
+      <image:title>Softacc Team</image:title>
+      <image:caption>Unser Expertenteam für IT und KI in der Schweiz</image:caption>
+      <image:geo_location>Niederurnen, Schweiz</image:geo_location>
+    </image:image>
   </url>
   <url>
     <loc>https://softacc.ch/kontakt</loc>
-    <lastmod>2024-04-08T21:00:00+02:00</lastmod>
+    <lastmod>2024-05-28T12:00:00+02:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="de-CH" href="https://softacc.ch/kontakt"/>
+    <image:image>
+      <image:loc>https://softacc.ch/images/office.jpg</image:loc>
+      <image:title>Softacc Büro</image:title>
+      <image:caption>Unser Firmensitz in Niederurnen</image:caption>
+      <image:geo_location>Niederurnen, Schweiz</image:geo_location>
+    </image:image>
   </url>
-  <!-- Referenzprojekte -->
+  <!-- Projekte Hauptseite -->
   <url>
     <loc>https://softacc.ch/projekte</loc>
-    <lastmod>2024-04-08T21:00:00+02:00</lastmod>
+    <lastmod>2024-05-28T12:00:00+02:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="de-CH" href="https://softacc.ch/projekte"/>
     <image:image>
       <image:loc>https://softacc.ch/images/BonlivreLogo.png</image:loc>
       <image:title>Bonlivre Logo</image:title>
+      <image:caption>Bonlivre - E-Commerce Plattform für Bücher, entwickelt von Softacc</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://softacc.ch/images/fileshift-screenshot.jpg</image:loc>
       <image:title>Fileshift Screenshot</image:title>
+      <image:caption>Fileshift - PDF-Bearbeitungstool, entwickelt von Softacc</image:caption>
     </image:image>
+  </url>
+  <!-- Detailseiten für die Projekte -->
+  <url>
+    <loc>https://softacc.ch/projekte/pdf-tools</loc>
+    <lastmod>2024-05-28T12:00:00+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://softacc.ch/projekte/pdf-tools"/>
+    <image:image>
+      <image:loc>https://softacc.ch/images/fileshift-screenshot.jpg</image:loc>
+      <image:title>Fileshift Screenshot</image:title>
+      <image:caption>Fileshift - Effiziente PDF-Bearbeitung mit Schweizer Qualität</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://softacc.ch/projekte/bonlivre</loc>
+    <lastmod>2024-05-28T12:00:00+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://softacc.ch/projekte/bonlivre"/>
+    <image:image>
+      <image:loc>https://softacc.ch/images/BonlivreLogo.png</image:loc>
+      <image:title>Bonlivre Logo</image:title>
+      <image:caption>Bonlivre - Schweizer E-Commerce Platform für Buchliebhaber</image:caption>
+    </image:image>
+  </url>
+  <!-- Dienstleistungen Detailseiten -->
+  <url>
+    <loc>https://softacc.ch/leistungen/webentwicklung</loc>
+    <lastmod>2024-05-28T12:00:00+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://softacc.ch/leistungen/webentwicklung"/>
+  </url>
+  <url>
+    <loc>https://softacc.ch/leistungen/app-entwicklung</loc>
+    <lastmod>2024-05-28T12:00:00+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://softacc.ch/leistungen/app-entwicklung"/>
+  </url>
+  <url>
+    <loc>https://softacc.ch/leistungen/ai-beratung</loc>
+    <lastmod>2024-05-28T12:00:00+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://softacc.ch/leistungen/ai-beratung"/>
   </url>
 </urlset> 
